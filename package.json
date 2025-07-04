@@ -1,0 +1,22 @@
+{
+  "name": "adlistqr",
+  "version": "1.0.0",
+  "description": "AdlistQR - QR Tabanlı Garson Çağırma ve Sipariş Sistemi",
+  "main": "src/app.js",
+  "scripts": {
+    "build": "tailwindcss -i ./src/styles.css -o ./public/styles.css",
+    "dev": "tailwindcss -i ./src/styles.css -o ./public/styles.css --watch"
+  },
+  "keywords": [
+    "qr",
+    "adisyon",
+    "pos",
+    "supabase",
+    "restaurant"
+  ],
+  "author": "1sthillman",
+  "license": "MIT",
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
+  }
+} 

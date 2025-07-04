@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdlistQR - Sipariş Sistemi</title>
+    <link href="./styles.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+    <script type="module" src="../src/app.js" defer></script>
+</head>
+<body class="bg-gray-50 font-sans antialiased text-gray-800">
+
+    <div id="app" class="container mx-auto max-w-lg p-4 min-h-screen">
+
+        <!-- Başlık ve Masa Bilgisi -->
+        <header class="text-center py-4 border-b mb-6">
+            <h1 class="text-3xl font-bold text-brand-primary">AdlistQR</h1>
+            <p class="text-md text-gray-600 mt-1">Masa Numarası: <span id="table-id" class="font-bold text-xl">...</span></p>
+        </header>
+
+        <!-- Bildirim Alanı -->
+        <div id="notification" class="hidden p-3 mb-4 rounded-lg text-white text-center font-semibold"></div>
+
+        <!-- Ana Sayfa -->
+        <div id="landing-page" class="space-y-4">
+            <button id="call-waiter-btn" class="w-full bg-brand-warning hover:bg-yellow-500 text-white font-bold py-4 px-4 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                Garsonu Çağır
+            </button>
+            <button id="show-menu-btn" class="w-full bg-brand-primary hover:bg-blue-700 text-white font-bold py-4 px-4 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                Menüyü Göster ve Sipariş Ver
+            </button>
+        </div>
+
+        <!-- Menü Sayfası -->
+        <div id="menu-page" class="hidden">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-2xl font-bold">Menü</h2>
+                <button id="back-to-home-from-menu" class="text-sm text-brand-secondary hover:underline">Geri</button>
+            </div>
+            <!-- Ürünler bu div içine yüklenecek -->
+            <div id="menu-items" class="space-y-3"></div>
+        </div>
+
+        <!-- Sepet Alanı (Sabit) -->
+        <div id="cart-container" class="hidden sticky bottom-0 left-0 right-0 bg-white p-4 border-t-2 shadow-2xl rounded-t-lg">
+             <div class="flex justify-between items-center mb-2">
+                <h2 class="text-xl font-bold">Sepetiniz</h2>
+                <button id="close-cart-btn" class="text-xl font-bold">&times;</button>
+            </div>
+            <div id="cart-items" class="max-h-40 overflow-y-auto mb-2 space-y-2">
+                <!-- Sepet ürünleri buraya gelecek -->
+            </div>
+            <div class="flex justify-between items-center font-bold text-lg border-t pt-2">
+                <span>Toplam:</span>
+                <span id="total-price">0.00 TL</span>
+            </div>
+            <button id="place-order-btn" class="w-full mt-3 bg-brand-success hover:bg-green-700 text-white font-bold py-3 px-4 rounded-lg shadow-lg">
+                Siparişi Onayla
+            </button>
+        </div>
+        
+         <!-- Sipariş Durum Sayfası -->
+         <div id="status-page" class="hidden text-center p-6 bg-white rounded-lg shadow-md">
+            <h2 class="text-2xl font-bold mb-4">Sipariş Durumu</h2>
+            <p id="order-status-text" class="text-lg font-medium"></p>
+            <div class="w-full bg-gray-200 rounded-full h-4 mt-4">
+              <div id="order-progress-bar" class="bg-brand-success h-4 rounded-full" style="width: 25%"></div>
+            </div>
+            <button id="new-order-btn" class="hidden mt-6 bg-brand-primary hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">
+                Yeni Sipariş Ver
+            </button>
+        </div>
+    </div>
+</body>
+</html> 
